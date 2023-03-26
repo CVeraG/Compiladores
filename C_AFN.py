@@ -2,18 +2,15 @@ import C_Estado, C_Transicion, SimbolosEspeciales
 
 
 class AFN:
-    ConjDeAFNs = set()
-    EdoIni = C_Estado.Estado
-    EdosAFN = set()
-    EdosAcept = set()
-    Alfabeto = set()
-    IdAFN = 0
 
     def __init__(self):
         self.IdAFN = 0
-        self.EdoIni = None
+        self.EdoIni = C_Estado.Estado
+        self.EdosAFN = set()
         self.EdosAFN.clear()
+        self.EdosAcept = set()
         self.EdosAcept.clear()
+        self.Alfabeto = set()
         self.Alfabeto.clear()
         print("Entre al constructor")
 
@@ -73,7 +70,12 @@ class AFN:
     def ImprimirEdosAFN(self):
         print("Estados del AFN:")
         for estado in self.EdosAFN:
-            print(estado)
+            print(estado.IdEstado)
+        print("Estados de aceptacion")
+        for estado1 in self.EdosAcept:
+            print(estado1.IdEstado)
+        print("Estado de inicio")
+        print(self.EdoIni.IdEstado)
 
 
 
