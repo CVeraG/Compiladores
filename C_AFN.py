@@ -12,13 +12,9 @@ class AFN:
         self.EdosAcept.clear()
         self.Alfabeto = set()
         self.Alfabeto.clear()
-        print("Entre al constructor")
-
     def CrearAFNBasico(self, s1, s2):
         e1 = C_Estado.Estado()
-        print(f"basico{e1.IdEstado}")
         e2 = C_Estado.Estado()
-        print(e2.IdEstado)
         if s1 == s2:
             t = C_Transicion.C_Transicion(s1, e2)
             e1.Trans.add(t)
@@ -43,9 +39,7 @@ class AFN:
 
     def UnirAFN(self, f2):
         e1 = C_Estado.Estado()
-        print(e1.IdEstado)
         e2 = C_Estado.Estado()
-        print(e2.IdEstado)
         t1 = C_Transicion.C_Transicion(SimbolosEspeciales.SimbolosEspeciales.EPSILON, self.EdoIni)
         t2 = C_Transicion.C_Transicion(SimbolosEspeciales.SimbolosEspeciales.EPSILON, f2.EdoIni)
         e1.Trans.add(t1)
