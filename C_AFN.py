@@ -61,6 +61,72 @@ class AFN:
         self.Alfabeto |= f2.Alfabeto
         return self
 
+    def ConcAFN(self, f2):
+        for t in f2.EdoIni.Trans:
+            for e in self.EdosAcept:
+                e.Trans.add(t)
+                e.EdoAcept = False
+
+        f2.EdosAFN.remove(f2.EdoIni)
+        self.EdosAcept = f2.EdosAcept
+        self.EdosAFN |= f2.EdosAFN
+        self.Alfabeto |= f2.Alfabeto
+        return self
+
+    def CerrPos(self):
+        e_ini = C_Estado.Estado()
+        e_fin = C_Estado.Estado()
+
+        e_ini.Trans.add(C_Transicion.C_Transicion(SimbolosEspeciales.SimbolosEspeciales.EPSILON, self.EdoIni))
+        for e in self.EdosAcept:
+            e.Trans.add(C_Transicion.C_Transicion(SimbolosEspeciales.SimbolosEspeciales.EPSILON, e_fin))
+            e.Trans.add(C_Transicion.C_Transicion(SimbolosEspeciales.SimbolosEspeciales.EPSILON, self.EdoIni))
+            e.EdoAcept = False
+
+        self.EdoIni = e_ini
+        e_fin.EdoAcept = True
+        self.EdosAcept.clear()
+        self.EdosAcept.add(e_fin)
+        self.EdosAFN.add(e_ini)
+        self.EdosAFN.add(e_fin)
+        return self
+
+    def CerrKleen(self):
+        e_ini = C_Estado.Estado()
+        e_fin = C_Estado.Estado()
+
+        e_ini.Trans.add(C_Transicion.C_Transicion(SimbolosEspeciales.SimbolosEspeciales.EPSILON, self.EdoIni))
+        e_ini.Trans.add(C_Transicion.C_Transicion(SimbolosEspeciales.SimbolosEspeciales.EPSILON, e_fin))
+        for e in self.EdosAcept:
+            e.Trans.add(C_Transicion.C_Transicion(SimbolosEspeciales.SimbolosEspeciales.EPSILON, e_fin))
+            e.Trans.add(C_Transicion.C_Transicion(SimbolosEspeciales.SimbolosEspeciales.EPSILON, self.EdoIni))
+            e.EdoAcept = False
+
+        self.EdoIni = e_ini
+        e_fin.EdoAcept = True
+        self.EdosAcept.clear()
+        self.EdosAcept.add(e_fin)
+        self.EdosAFN.add(e_ini)
+        self.EdosAFN.add(e_fin)
+        return self
+
+    def Opcional(self):
+        e_ini = C_Estado.Estado()
+        e_fin = C_Estado.Estado()
+
+        e_ini.Trans.add(C_Transicion.C_Transicion(SimbolosEspeciales.SimbolosEspeciales.EPSILON, self.EdoIni))
+        e_ini.Trans.add(C_Transicion.C_Transicion(SimbolosEspeciales.SimbolosEspeciales.EPSILON, e_fin))
+
+        for e in self.EdosAcept:
+            e.Trans.add(C_Transicion.C_Transicion(SimbolosEspeciales.SimbolosEspeciales.EPSILON, e_fin))
+            e.EdoAcept = False
+        self.EdoIni=e_ini
+        e_fin.EdoAcept = True
+        self.EdosAcept.clear()
+        self.EdosAcept.add(e_fin)
+        self.EdosAFN.add(e_ini)
+        self.EdosAFN.add(e_fin)
+
     def ImprimirEdosAFN(self):
         print("Estados del AFN:")
         for estado in self.EdosAFN:
@@ -70,6 +136,10 @@ class AFN:
             print(estado1.IdEstado)
         print("Estado de inicio")
         print(self.EdoIni.IdEstado)
+
+
+
+
 
 
 
