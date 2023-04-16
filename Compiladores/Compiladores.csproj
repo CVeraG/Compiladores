@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4EC1EFE-978A-4773-93A8-37755EC3E613}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Compiladores</RootNamespace>
+    <AssemblyName>Compiladores</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C_AFN.cs" />
+    <Compile Include="C_Estado.cs" />
+    <Compile Include="C_SimbolosEspeciales.cs" />
+    <Compile Include="C_Transicion.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAFNBasico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAFNBasico.Designer.cs">
+      <DependentUpon>FormAFNBasico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAFN_AFD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAFN_AFD.Designer.cs">
+      <DependentUpon>FormAFN_AFD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnalizarCadena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnalizarCadena.Designer.cs">
+      <DependentUpon>FormAnalizarCadena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCerrKleen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCerrKleen.Designer.cs">
+      <DependentUpon>FormCerrKleen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCerrPos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCerrPos.Designer.cs">
+      <DependentUpon>FormCerrPos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConc.Designer.cs">
+      <DependentUpon>FormConc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOpc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOpc.Designer.cs">
+      <DependentUpon>FormOpc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUnionEsp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUnionEsp.Designer.cs">
+      <DependentUpon>FormUnionEsp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUnir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUnir.Designer.cs">
+      <DependentUpon>FormUnir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAFNBasico.resx">
+      <DependentUpon>FormAFNBasico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAFN_AFD.resx">
+      <DependentUpon>FormAFN_AFD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnalizarCadena.resx">
+      <DependentUpon>FormAnalizarCadena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCerrKleen.resx">
+      <DependentUpon>FormCerrKleen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCerrPos.resx">
+      <DependentUpon>FormCerrPos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConc.resx">
+      <DependentUpon>FormConc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOpc.resx">
+      <DependentUpon>FormOpc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUnionEsp.resx">
+      <DependentUpon>FormUnionEsp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUnir.resx">
+      <DependentUpon>FormUnir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
